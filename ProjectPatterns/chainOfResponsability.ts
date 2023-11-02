@@ -1,8 +1,8 @@
 abstract class PotatoChain {
 
   protected slowness: number;
-  protected next: PotatoChain;
-  protected time: number;
+  protected next: PotatoChain | undefined;
+  protected time: number | undefined;
 
   constructor(slowness:number) {
     this.slowness = slowness;
