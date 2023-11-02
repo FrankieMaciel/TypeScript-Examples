@@ -19,4 +19,4 @@ const filme: Readonly<Filme> = {
 };
 
 // O erro acontece pois a propriedade "titulo" não pode ser redefinida.
-filme.titulo = nomeDeFilmes[3];
+// filme.titulo = nomeDeFilmes[3];
