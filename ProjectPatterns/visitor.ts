@@ -24,29 +24,47 @@ class User implements Account{
 
 class NameChecker implements Visitor {
 
-  isNamebad: boolean = false;
-  badWords = ['bunda', 'feio', 'idiota'];
+  badWords = ['burro', 'feio', 'idiota'];
 
   checkUserName(user: User): void {
-    this.isNamebad = this.badWords.some((palavra) => user.name.includes(palavra));
+    let isNamebad = this.badWords.some((palavra) => user.name.includes(palavra));
+    if (isNamebad) 
+    {
+      console.log('Nome inapropriado!');
+    } else 
+    {
+      console.log('Nome dentro das normas.');
+    }
   }
 }
 
-function verifyName(user: User): void {
+class palindromoChecker implements Visitor {
 
-  let userChecker: NameChecker = new NameChecker();
-  user.accept(userChecker);
+  checkUserName(user: User): void {
+    let isPalindromo = true;
+    for (let i = 0; i < user.name.length; i++) {
+      
+      if (i > user.name.length / 2) break;
+      if (user.name[i] !== user.name[user.name.length - i - 1]) {
+        isPalindromo = false;
+      }
+    }
 
-  if (userChecker.isNamebad) {
-    console.log('Nome inapropriado!');
-  } else {
-    console.log('Nome dentro das normas.');
+    if (isPalindromo) console.log('É palindromo!');
+    else console.log('Não é palindromo!');
   }
 }
 
-let newuser: User = new User('bundalegal');
-verifyName(newuser);
+let newuser: User = new User('menino_idiota');
+let userChecker: NameChecker = new NameChecker();
+newuser.accept(userChecker);
 
-newuser.changeName('NomeLegal');
+newuser.changeName('menino_legal');
 
-verifyName(newuser);
+newuser.accept(userChecker);
+
+let palindromoCheck: palindromoChecker = new palindromoChecker();
+
+newuser.changeName('anna');
+
+newuser.accept(palindromoCheck);
