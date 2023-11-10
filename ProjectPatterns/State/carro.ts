@@ -18,22 +18,17 @@ class Carro {
     realizarManutencao(): void {
       this.estado.realizarManutencao();
     }
-  
-    // Método para alterar o estado do carro
-    mudarEstado(novoEstado: EstadoCarro): void {
-      this.estado = novoEstado;
-    }
   }
   
-  // Exemplo de uso
+  // EXEMPLO DE USO
   const carro = new Carro();
   carro.alugarCarro(); 
   
-  carro.mudarEstado(new EstadoAlugado());
-  carro.devolverCarro(); 
+  const carro2 = (new EstadoAlugado());
+  carro2.devolverCarro(); 
   
-  carro.mudarEstado(new EstadoManutencao());
-  carro.alugarCarro();
+  const carro3 = (new EstadoManutencao());
+  carro3.alugarCarro();
 
   carro.realizarManutencao(); 
   carro.devolverCarro();
