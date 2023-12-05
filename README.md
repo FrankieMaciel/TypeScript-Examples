@@ -2,8 +2,8 @@
 
 > `npm install typescript`     // instalação do TypeScript
 
-> `npx tsc --init`        // instalação dos pacotes de configurações
+> `npx tsc --init`       // instalação dos pacotes de configurações
 
-> `npx tsc`           // executável do TypeScript para gerar código js
+> `npm install -g ts-node` // instalação do ts-node
 
-> `node ./dist/nomeDoArquivo.js`     // Comando executar o código em js
+> `ts-node nomeArquivo.ts` // Compilar e executar um arquivo typescript
